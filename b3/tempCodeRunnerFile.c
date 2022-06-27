@@ -2,12 +2,17 @@
 
 int main()
 {
-    int count;
-    scanf("%d", &count);
-
-    for(int i=1; i<=count; i++)
+    int N,X,first_number;
+    scanf("%d", &N);
+    scanf("%d", &first_number);
+    int number1[N];
+    for(X=0;X<N;X++)
     {
-        printf("*\n");
+        scanf("%d", &number1[X]);
     }
-    return 0;
+    for(X=0;X<N;X++)
+    {
+        if(number1[X]<first_number)
+            printf("%d ", number1[X]);
+    }
 }
