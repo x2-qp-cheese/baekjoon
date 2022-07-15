@@ -1,43 +1,37 @@
 #include <stdio.h>
 
-int main(){ 
-    int N;
-    scanf("%d", &N);
-    char name[N+1][16];
-    int day[N];
-    int month[N];
-    int year[N];
-    int max, min;
-
-    for(int i=0; i<N; i++){
+int main(){
+    int n = 0;
+    scanf("%d", &n);
+    char name[n][16];
+    int max=0, min=0;
+    int day[n], month[n], year[n];
+    for(int i=0; i<n; i++){
         scanf("%s %d %d %d", name[i], &day[i], &month[i], &year[i]);
     }
-    max=0;
-    min=0;
-    for(int i=0; i<N; i++){
-        if(year[max]>year[i])
-            max=i;
-        if(year[max]<year[i])
-            min=i;
-        
-        if(year[max]==year[i]){
-            if(month[max]>month[i])
-                max=i;
-            
-            if(month[max]==month[i]){
-                if(day[max]>day[i])
-                    max=i;
-            }
-        }
-        if(year[min]==year[i]){
-            if(year[max]<month[i])
-                min=i;
-            
-            if(month[min]==month[i]){
-                if(day[min]<day[i])
-                    min=i;
+    for(int j=0; j<n; j++){
+        if(year[j]<year[max])
+            max=j;
+        else if(year[j]==year[max]){
+            if(month[j]<month[max])
+                max=j;
+            else if(month[j]==month[max]){
+                if(day[j]<day[max])
+                    max=j;
             }
         }
     }
-    printf("%s\n%s", name[min], name[max]);   
+    for(int j=0; j<n; j++){
+        if(year[j]>year[min])
+            min=j;
+        else if(year[j]==year[min]){
+            if(month[j]>month[min])
+                min=j;
+            else if(month[j]==month[min]){
+                if(day[j]>day[min])
+                    min=j;
+            }
+        }
+    }
+    printf("%s\n%s",name[min], name[max]);
 }

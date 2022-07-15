@@ -17,9 +17,9 @@ int main(){
 
     if(a[0]==b[0]&&b[0]==c[0])
         condition=1;
-    else if((a[1]-b[1])*(c[0]-b[0])==(c[1]-b[1])*(a[0]-b[0]))
+    else if((a[1]-b[1])/(a[0]-b[0])==(c[1]-b[1])/(c[0]-b[0]))
         condition=1;
-
+    
     if(condition==1)
         printf("X");
     else{
